@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+// Constantes que definem a quantidade de casas para cada peça
+#define MOV_BISPO 5
+#define MOV_TORRE 5
+#define MOV_RAINHA 8
+
+int main() {
+    // Declaração de variáveis para controle dos loops
+    int i;
+
+    // ========== Movimento do Bispo ==========
+    // O bispo se move 5 casas na diagonal superior direita.
+    // Como é uma diagonal, combinamos o movimento para "Cima" e "Direita".
+    // Utilizamos um loop 'for' para representar esse movimento.
+    printf("Movimentação do Bispo (Diagonal Superior Direita):\n");
+    for(i = 0; i < MOV_BISPO; i++) {
+        printf("Cima\n");
+        printf("Direita\n");
+    }
+    printf("\n");
+
+    // ========== Movimento da Torre ==========
+    // A torre se move 5 casas para a direita.
+    // Utilizamos um loop 'while' para repetir esse movimento.
+    printf("Movimentação da Torre (Direita):\n");
+    i = 0;
+    while(i < MOV_TORRE) {
+        printf("Direita\n");
+        i++;
+    }
+    printf("\n");
+
+    // ========== Movimento da Rainha ==========
+    // A rainha se move 8 casas para a esquerda.
+    // Utilizamos um loop 'do...while' para realizar esse movimento.
+    printf("Movimentação da Rainha (Esquerda):\n");
+    i = 0;
+    do {
+        printf("Esquerda\n");
+        i++;
+    } while(i < MOV_RAINHA);
+    printf("\n");
+
+    return 0;
+}
