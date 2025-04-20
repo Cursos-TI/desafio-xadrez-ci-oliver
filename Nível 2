@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+// Constantes que definem a quantidade de casas para cada peça
+#define MOV_BISPO 5
+#define MOV_TORRE 5
+#define MOV_RAINHA 8
+#define MOV_CAVALO_L 3 // Quantidade de "L" que o cavalo vai executar
+
+int main() {
+    // Declaração de variáveis para controle dos loops
+    int i, j;
+
+    // ========== Movimento do Bispo ==========
+    // O bispo se move 5 casas na diagonal superior direita.
+    printf("Movimentação do Bispo (Diagonal Superior Direita):\n");
+    for(i = 0; i < MOV_BISPO; i++) {
+        printf("Cima\n");
+        printf("Direita\n");
+    }
+    printf("\n");
+
+    // ========== Movimento da Torre ==========
+    // A torre se move 5 casas para a direita.
+    printf("Movimentação da Torre (Direita):\n");
+    i = 0;
+    while(i < MOV_TORRE) {
+        printf("Direita\n");
+        i++;
+    }
+    printf("\n");
+
+    // ========== Movimento da Rainha ==========
+    // A rainha se move 8 casas para a esquerda.
+    printf("Movimentação da Rainha (Esquerda):\n");
+    i = 0;
+    do {
+        printf("Esquerda\n");
+        i++;
+    } while(i < MOV_RAINHA);
+    printf("\n");
+
+    // ========== Movimento do Cavalo ==========
+    // O cavalo se move em "L": 2 casas para baixo e 1 para esquerda.
+    // Vamos repetir esse movimento 3 vezes usando loops aninhados:
+    // Um loop externo 'for' e um loop interno 'while'.
+    printf("Movimentação do Cavalo (L - Baixo x2, Esquerda x1):\n");
+    for(i = 0; i < MOV_CAVALO_L; i++) {
+        // Movimento de 2 casas para baixo (loop interno while)
+        j = 0;
+        while(j < 2) {
+            printf("Baixo\n");
+            j++;
+        }
+
+        // Movimento de 1 casa para a esquerda (do-while dentro do for)
+        j = 0;
+        do {
+            printf("Esquerda\n");
+            j++;
+        } while(j < 1);
+
+        printf("Fim de movimento em L #%d\n", i + 1);
+    }
+
+    return 0;
+}
