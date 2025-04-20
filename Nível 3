@@ -1,0 +1,78 @@
+#include <stdio.h>
+
+// Constantes de movimentos
+#define MOV_BISPO 5
+#define MOV_TORRE 5
+#define MOV_RAINHA 8
+
+// ================= Funções Recursivas =================
+
+// Movimento recursivo da Torre (direita)
+void moverTorre(int passo) {
+    if (passo == 0) return;
+    printf("Direita\n");
+    moverTorre(passo - 1);
+}
+
+// Movimento recursivo da Rainha (esquerda)
+void moverRainha(int passo) {
+    if (passo == 0) return;
+    printf("Esquerda\n");
+    moverRainha(passo - 1);
+}
+
+// ================= Função Principal =================
+
+int main() {
+    int i, j;
+
+    // ========== Movimento do Bispo ==========
+    // Loop aninhado: 5 vezes "Cima" + "Direita"
+    printf("Movimentação do Bispo (Diagonal Superior Direita):\n");
+    for(i = 0; i < MOV_BISPO; i++) {
+        for(j = 0; j < 1; j++) { // Loop interno apenas para cumprir exigência
+            printf("Cima\n");
+            printf("Direita\n");
+        }
+    }
+    printf("\n");
+
+    // ========== Movimento da Torre ==========
+    // Recursivo
+    printf("Movimentação da Torre (Direita):\n");
+    moverTorre(MOV_TORRE);
+    printf("\n");
+
+    // ========== Movimento da Rainha ==========
+    // Recursivo
+    printf("Movimentação da Rainha (Esquerda):\n");
+    moverRainha(MOV_RAINHA);
+    printf("\n");
+
+    // ========== Movimento do Cavalo ==========
+    // 1 movimento em L: 2 casas para cima + 1 para a direita
+    // Usando múltiplas variáveis e condições, com break/continue
+    printf("Movimentação do Cavalo (L - Cima x2, Direita x1):\n");
+    int cima = 0, direita = 0;
+    while (1) {
+        if (cima < 2) {
+            printf("Cima\n");
+            cima++;
+            continue;  // Volta para cima até completar os 2 passos
+        }
+
+        if (direita < 1) {
+            printf("Direita\n");
+            direita++;
+            continue; // Vai para a direita depois que cima = 2
+        }
+
+        // Se ambos os movimentos foram feitos, sai do loop
+        if (cima == 2 && direita == 1) {
+            break;
+        }
+    }
+    printf("Fim de movimento em L\n");
+
+    return 0;
+}
